@@ -13,8 +13,13 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+      "NSBluetoothAlwaysUsageDescription": "Este app precisa de acesso ao Bluetooth para se comunicar com dispositivos.",
+      "NSBluetoothPeripheralUsageDescription": "Este app usa o Bluetooth para conectar a dispositivos próximos."
+      }
     },
+
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
@@ -25,9 +30,9 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
+    
     "plugins": [
-      "react-native-ble-plx",
-      "react-native-permissions"
+      "react-native-ble-plx"
     ]
   }
 }

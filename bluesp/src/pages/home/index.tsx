@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {Buffer} from "buffer";
 import { Button, Text, View, PermissionsAndroid, Platform } from 'react-native';
-import { BleManager } from 'react-native-ble-plx';
+import { BleManager, Device } from 'react-native-ble-plx';
 
 import { style } from "./styles";
 
@@ -9,7 +9,7 @@ const manager = new BleManager();
 
 export default function Home() {
     const [log, setLog] = useState('');
-    const [device, setDevice] = useState(null);
+    const [device, setDevice] = useState<Device | null>(null);
 
     async function requestPermissions() {
         if (Platform.OS === 'android') {
