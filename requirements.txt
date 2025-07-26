@@ -1,0 +1,5 @@
+-mostrar a porcentagem da bateria
+-mostrar a hora atual
+-habilidade de interagir com aparelhos/pacotes wifi/ble
+-ser gerenciavel via aplicativo android
+
