@@ -8,14 +8,14 @@ export const style = StyleSheet.create({
 
     },
 
-    top:{
+    tittle:{
         alignContent:'center',
         alignItems:'center',
         position:'absolute'
 
     },
 
-    topText:{
+    tittleText:{
         fontFamily:'sans-serif-bold',
         fontSize: 30,
         color:'black',
