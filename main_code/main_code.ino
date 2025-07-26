@@ -7,7 +7,6 @@
 #define screen_height 64
 Adafruit_SSD1306 display(screen_width, screen_height, &Wire, -1);
 
-
 int state = 0;
 // 0 = neutro
 // 1 = feliz
