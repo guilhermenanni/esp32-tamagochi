@@ -2,10 +2,24 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 #include <WiFi.h>
+#include <BLEService.h>
+#include <BLEDevice.h>
+#include <BLEUtils.h>
+#include <BLE2902.h>
+
+
+
+#define device_name "bluesp"
+#define device_uudi "6e400001-b5a3-f393-e0a9-e50e24dcca9e"
+
+BLEServer* pServer = nullptr;
+BLECharacteristic* pCharacteristic = nullptr;
+bool isConnected = false;
 
 #define screen_width 128
 #define screen_height 64
 Adafruit_SSD1306 display(screen_width, screen_height, &Wire, -1);
+
 
 int state = 0;
 // 0 = neutro
@@ -26,6 +40,19 @@ void loop(){
   status_bar();
   animations(); 
 }
+
+class connToCell: public BLEServerCallbacks{
+    void onConnect(BLEServer *pServer) {
+      isConnected = true;
+      display.println("conectado com sucesso !");  
+    }
+
+    void onDisconnect(BLEServer *pServer) {
+      isConnected = false;
+      display.println("erro de conexão!")
+      }
+    }
+
 
 void setup_screen(){
   display.begin(SSD1306_SWITCHCAPVCC 0x3C);
